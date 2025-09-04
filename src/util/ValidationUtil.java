@@ -7,7 +7,8 @@ public class ValidationUtil {
 
         public static String isValidEmail(String email) {
             if (email == null || email.isBlank()) return "Email is required";
-            String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+            String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
             if (!Pattern.matches(regex, email)) return "Invalid email format";
             return null;
         }

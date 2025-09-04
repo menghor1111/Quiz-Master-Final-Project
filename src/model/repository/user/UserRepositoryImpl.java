@@ -1,7 +1,6 @@
-package model.repository;
+package model.repository.user;
 
-import model.Result;
-import model.User;
+import model.entity.User;
 import model.db.DbConnection;
 
 import java.sql.Connection;
@@ -9,9 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserRepositoryImpl implements UserRepository{
+public class UserRepositoryImpl implements UserRepository {
     @Override
-    public void saveUser(User user) {
+    public User saveUser(User user) {
         try(Connection conn = DbConnection.getInstance()) {
             conn.setAutoCommit(false);
 
@@ -36,6 +35,7 @@ public class UserRepositoryImpl implements UserRepository{
                 }
 
                 conn.commit();
+                return findByEmail(user.getEmail());
 
 
             }catch (SQLException e)
@@ -51,6 +51,7 @@ public class UserRepositoryImpl implements UserRepository{
              e.printStackTrace();
             }
 
+        return null;
     }
 
 

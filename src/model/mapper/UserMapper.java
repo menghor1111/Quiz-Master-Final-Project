@@ -1,6 +1,6 @@
 package model.mapper;
 
-import model.User;
+import model.entity.User;
 import model.dto.UserLoginRequest;
 import model.dto.UserLoginResponse;
 import model.dto.UserRequest;

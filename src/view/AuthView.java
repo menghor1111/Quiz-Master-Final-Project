@@ -33,9 +33,7 @@ public class AuthView {
 
 
 
-        return new UserRequest(ConstantsUtil.PLAYER,username,email,password);
-
-
+        return new UserRequest(ConstantsUtil.PLAYER_ID,username,email,password);
 
     }
 

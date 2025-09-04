@@ -1,6 +1,6 @@
 package model.mapper;
 
-import model.User;
+import model.entity.User;
 import model.dto.UserLoginRequest;
 import model.dto.UserLoginResponse;
 import model.dto.UserRequest;
@@ -57,20 +57,4 @@ public class UserMapperImpl implements UserMapper {
                 response.roleType()
         );
     }
-
-
-
-//    public User(Integer userId, String username,String email, Integer roleId,String roleType) {
-//        this.userId = userId;
-//        this.username = username;
-//        this.email = email;
-//        this.roleId = roleId;
-//        this.roleType = roleType;
-//
-//    }
-
-
-
-
-
 }

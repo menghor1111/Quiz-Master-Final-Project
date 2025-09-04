@@ -10,22 +10,22 @@ public class App {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        while (true)
-        {
-            Integer option = userView.showMainMenu();
-            if(option == 0)
-            {
-                System.out.println("Exit program...");
-                break;
-            }
-            switch (option)
-            {
-                case 1 -> userController.registerUser();
-                case 2 -> userController.login();
-                default -> System.out.println("Invalid Option !!! Please Enter again");
+        while (true) {
+            try {
+                Integer option = userView.showMainMenu();
+                if (option == 0) {
+                    System.out.println("Exit program...");
+                    break;
+                }
+                switch (option) {
+                    case 1 -> userController.register();
+                    case 2 -> userController.login();
+                    default -> System.out.println("Invalid Option !!! Please Enter again");
+                }
+            } catch (RuntimeException e) {
+                System.out.println("Input Error : " + e.getMessage());;
             }
 
         }
-
     }
 }

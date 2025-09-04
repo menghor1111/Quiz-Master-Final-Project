@@ -2,8 +2,8 @@ package util;
 
 import controller.AuthController;
 import model.mapper.UserMapperImpl;
-import model.repository.UserRepositoryImpl;
-import model.service.AuthServiceImpl;
+import model.repository.user.UserRepositoryImpl;
+import model.service.auth.AuthServiceImpl;
 import view.AuthView;
 import view.MenuView;
 

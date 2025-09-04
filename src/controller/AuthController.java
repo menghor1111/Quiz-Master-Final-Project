@@ -1,13 +1,14 @@
 package controller;
 
-import model.User;
+import exception.AuthException;
+import model.entity.User;
 import model.dto.UserLoginRequest;
 import model.dto.UserLoginResponse;
 import model.dto.UserRequest;
 import model.dto.UserResponse;
 import model.mapper.UserMapper;
 import model.mapper.UserMapperImpl;
-import model.service.AuthService;
+import model.service.auth.AuthService;
 import util.Session;
 import view.AuthView;
 import view.MenuView;
@@ -19,9 +20,6 @@ public class AuthController {
     private final MenuView dashBoardView;
     private final UserMapper userMapper = new UserMapperImpl();
 
-
-
-
     public AuthController(AuthView authview, AuthService userService, MenuView dashBoardView) {
         this.authView = authview;
         this.userService = userService;
@@ -29,19 +27,21 @@ public class AuthController {
 
     }
 
-    public void registerUser(){
+    public void register(){
         UserRequest  newUser = authView.register();
 
-        UserResponse existUser = userService.createUser(newUser);
-        if(existUser != null)
-        {
-            System.out.println("Register successfully");
-        }
-        else
-        {
-            System.out.println("Fail to register!!");
-        }
+        try {
+            UserResponse existUser = userService.register(newUser);
+            if (existUser != null) {
+                System.out.println("Register successfully");
+            } else {
+                System.out.println("Fail to register!!");
+            }
 
+        }catch (AuthException e)
+        {
+            System.out.println("Register Error : " + e.getMessage());
+        }
     }
 
     public void login(){
@@ -49,16 +49,14 @@ public class AuthController {
         try {
             UserLoginResponse loginResponse = userService.login(loginRequest);
 
-            System.out.println("Login successful! Welcome + " + loginResponse.username());
+            System.out.println("Login successful!");
             User currentUser = userMapper.fromLoginResponseToUserModel(loginResponse);
             Session.getSessionInstance().setCurrenUser(currentUser);
             dashBoardView.showDashboard(currentUser);
 
-
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+        } catch (AuthException e) {
+            System.out.println("Login Error :" + e.getMessage());
         }
-
 
     }
 }
