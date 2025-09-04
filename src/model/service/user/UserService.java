@@ -1,9 +1,13 @@
 package model.service.user;
 
 import exception.UserException;
+import model.dto.UserLoginRequest;
+import model.dto.UserLoginResponse;
 import model.dto.UserRequest;
-import model.entity.User;
+import model.dto.UserResponse;
 
 public interface UserService {
-    User createUser(UserRequest request) throws UserException;
+
+    UserResponse createUser(UserRequest request) throws UserException;
+    UserLoginResponse getUser(UserLoginRequest request) throws UserException;
 }

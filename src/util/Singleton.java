@@ -3,7 +3,7 @@ package util;
 import controller.AuthController;
 import model.mapper.UserMapperImpl;
 import model.repository.user.UserRepositoryImpl;
-import model.service.auth.AuthServiceImpl;
+import model.service.user.UserServiceImpl;
 import view.AuthView;
 import view.MenuView;
 
@@ -11,7 +11,7 @@ public class Singleton {
 
     private Singleton(){}
     private static UserRepositoryImpl userRepository = null;
-    private static AuthServiceImpl userService = null;
+    private static UserServiceImpl userService = null;
     private static AuthView userView = null;
     private static AuthController userController = null;
 
@@ -26,10 +26,10 @@ public class Singleton {
         return  userRepository;
     }
 
-    public static synchronized AuthServiceImpl getUserServiceInstance(){
+    public static synchronized UserServiceImpl getUserServiceInstance(){
         if(userService == null)
         {
-            userService = new AuthServiceImpl(getUserRepoInstance(), new UserMapperImpl());
+            userService = new UserServiceImpl(getUserRepoInstance(), new UserMapperImpl());
         }
 
         return userService;
