@@ -1,10 +1,10 @@
-package model.mapper;
+package model.mapper.user;
 
 import model.entity.User;
-import model.dto.UserLoginRequest;
-import model.dto.UserLoginResponse;
-import model.dto.UserRequest;
-import model.dto.UserResponse;
+import model.dto.user.UserLoginRequest;
+import model.dto.user.UserLoginResponse;
+import model.dto.user.UserRequest;
+import model.dto.user.UserResponse;
 
 public interface UserMapper {
        User toUserModel(UserRequest request);

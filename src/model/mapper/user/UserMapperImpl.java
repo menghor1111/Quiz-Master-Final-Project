@@ -1,10 +1,10 @@
-package model.mapper;
+package model.mapper.user;
 
 import model.entity.User;
-import model.dto.UserLoginRequest;
-import model.dto.UserLoginResponse;
-import model.dto.UserRequest;
-import model.dto.UserResponse;
+import model.dto.user.UserLoginRequest;
+import model.dto.user.UserLoginResponse;
+import model.dto.user.UserRequest;
+import model.dto.user.UserResponse;
 
 public class UserMapperImpl implements UserMapper {
     @Override
@@ -13,6 +13,7 @@ public class UserMapperImpl implements UserMapper {
                         request.username(),
                         request.email(),
                         request.password()
+
                         );
     }
 
@@ -20,7 +21,7 @@ public class UserMapperImpl implements UserMapper {
     public UserResponse toUserResponse(User user) {
         return new UserResponse(
                 user.getUserId(),
-                user.getRoleId(),
+//                user.getRoleId(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getCreateAt(),

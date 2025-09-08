@@ -1,5 +1,7 @@
 package util;
 
+import model.entity.Category;
+
 import java.util.regex.Pattern;
 
 public class ValidationUtil {
@@ -37,6 +39,13 @@ public class ValidationUtil {
         public static String isValidScore(Integer score, Integer totalQuestions) {
             if (score == null || totalQuestions == null) return "Score and total questions are required";
             if (score < 0 || score > totalQuestions) return "Invalid score value";
+            return null;
+        }
+
+
+        public static String isValidCategoryName(String name)
+        {
+            if(name == null || name.isBlank()) return "Category name is required";
             return null;
         }
 

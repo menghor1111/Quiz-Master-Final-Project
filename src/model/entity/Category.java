@@ -2,7 +2,6 @@ package model.entity;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,12 +11,16 @@ import java.time.LocalDateTime;
 public class Category {
     private Integer categoryId;
     private String categoryName;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private String createAt;
+    private String updateAt;
 
-    public Category(String categoryName, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Category(Integer categoryId,String categoryName) {
+        this.categoryId = categoryId;
         this.categoryName = categoryName;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+    }
+
+    public Category(String categoryName)
+    {
+        this.categoryName = categoryName;
     }
 }

@@ -14,9 +14,9 @@ public class DbConnection {
 
         try{
             return DriverManager.getConnection(
-                    LoadConfig.properties.getProperty("DB_URL"),
-                    LoadConfig.properties.getProperty("DB_USERNAME"),
-                    LoadConfig.properties.getProperty("DB_PASSWORD")
+                    LoadConfig.PROPERTIES.getProperty("DB_URL"),
+                    LoadConfig.PROPERTIES.getProperty("DB_USERNAME"),
+                    LoadConfig.PROPERTIES.getProperty("DB_PASSWORD")
             );
         }catch (SQLException e)
         {

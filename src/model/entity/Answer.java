@@ -28,4 +28,11 @@ public class Answer {
         this.createAt = createAt;
         this.updateAt = updateAt;
     }
+
+    public Answer(String optionKey, String answerText, boolean isCorrect)
+    {
+        this.optionKey = optionKey;
+        this.answerText = answerText;
+        this.isCorrect = isCorrect;
+    }
 }

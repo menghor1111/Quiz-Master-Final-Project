@@ -7,10 +7,10 @@ import java.util.Properties;
 
 public class LoadConfig {
 
-    public final static Properties properties = new Properties();
+    public static final Properties PROPERTIES = new Properties();
     public static void loadProperties(){
            try(BufferedReader reader = new BufferedReader(new FileReader("config.properties"))){
-               properties.load(reader);
+               PROPERTIES.load(reader);
            } catch (IOException e) {
                System.out.println("Error : "+e.getMessage());
            }

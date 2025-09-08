@@ -4,6 +4,7 @@
       <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/lombok.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/postgresql-42.7.7.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/text-table-formatter-1.1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jbcrypt-0.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

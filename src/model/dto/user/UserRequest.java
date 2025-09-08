@@ -1,6 +1,4 @@
-package model.dto;
-
-import java.time.LocalDateTime;
+package model.dto.user;
 
 public record UserRequest(
         Integer roleId,

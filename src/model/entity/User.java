@@ -2,7 +2,6 @@ package model.entity;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,8 +16,8 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private String createAt;
+    private String updateAt;
 
     public User(Integer roleId, String username,String email, String password) {
         this.roleId = roleId;
@@ -28,14 +27,13 @@ public class User {
 
     }
 
-
-    public User(Integer userId, String username,String email, String password, Integer roleId,String roleType) {
+    public User(Integer userId, String username,String email, String password,String createAt, String updateAt) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.roleId = roleId;
-        this.roleType = roleType;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
 
     }
 

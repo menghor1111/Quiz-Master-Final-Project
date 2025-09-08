@@ -1,14 +1,14 @@
-package model.dto;
+package model.dto.user;
 
 import java.time.LocalDateTime;
 
 public record UserResponse(
         Integer userId,
-        Integer roleId,
+//        Integer roleId,
         String username,
         String email,
-        LocalDateTime createAt,
-        LocalDateTime updateAt
+        String createAt,
+        String updateAt
 
 ) {
 }

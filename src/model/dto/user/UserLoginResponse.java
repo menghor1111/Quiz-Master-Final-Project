@@ -1,4 +1,4 @@
-package model.dto;
+package model.dto.user;
 
 public record UserLoginResponse(
         Integer userId,
