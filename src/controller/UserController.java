@@ -8,8 +8,6 @@ import model.service.user.UserService;
 import util.ConstantsUtil;
 import view.UserView;
 
-import java.util.List;
-
 public class UserController {
 
     private final UserView userView;
@@ -223,18 +221,8 @@ public class UserController {
         }
 
     }
-
-
-
     public void updatePlayerByAdminOrCreator()
     {
-        updatePlayer(userView.showUserId());
-    }
-
-
-
-
-    public void updatePlayer(int userId){
 
         boolean success = false;
 
@@ -242,7 +230,22 @@ public class UserController {
 
             try {
 
-//                int userId = userView.showUserId();
+                updatePlayer(13);
+                success = true;
+
+
+            } catch (UserException | NumberFormatException e) {
+                System.out.println("Error Update player : " + e.getMessage());
+            }
+
+        }
+    }
+
+
+    public void updatePlayer(int userId){
+
+
+
 
                 while (true) {
 
@@ -277,11 +280,12 @@ public class UserController {
                                         System.out.println("Update player password successfully.");
                                     }
 
-                                    success = true;
+//                                    success = true;
+
+
                                     break;
                                 } else {
                                     System.out.println("Failed to update player.");
-                                    break;
                                 }
                             }catch (UserException e)
                             {
@@ -294,11 +298,16 @@ public class UserController {
 
                 }
 
-            } catch (UserException | NumberFormatException e) {
-                System.out.println("Error Update player : " + e.getMessage());
-            }
 
-        }
+
+
+
+
+
+
+
+
+
 
     }
 
