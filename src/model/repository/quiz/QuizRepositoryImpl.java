@@ -189,106 +189,6 @@ public class QuizRepositoryImpl implements  QuizRepository{
         }
     }
 
-//    @Override
-//    public List<QuizResponse> findAllQuizzes(Integer categoryId, Integer quizTypeId) {
-//        try(Connection conn = DbConnection.getInstance())
-//        {
-//            String sql = """
-//                    SELECT q.question_id, q.question_text,
-//                           c.category_name, qt.type_name,u.username AS creator_name,
-//                           a.answer_id, a.option_key, a.answer_text,a.is_correct
-//                           FROM questions q
-//                           JOIN categories c ON q.category_id = c.category_id
-//                           JOIN quiz_types qt ON q.quiz_type_id = qt.quiz_type_id
-//                           JOIN users u ON q.creator_id = u.user_id
-//                           JOIN answers a ON q.question_id = a.question_id
-//
-//                    """;
-//
-//
-//
-//            List<Integer> params = new ArrayList<>();
-//            List<String> conditions = new ArrayList<>();
-//
-//            if(categoryId != null)
-//            {
-//                params.add(categoryId);
-//                conditions.add("q.category_id = ?");
-//            }
-//            if(quizTypeId != null)
-//            {
-//                params.add(quizTypeId);
-//                conditions.add("q.quiz_type_id = ?");
-//            }
-//
-//            if(!conditions.isEmpty())
-//            {
-//                sql+= "WHERE " + String.join("AND",conditions);
-//
-//            }
-//
-//            sql+=" ORDER BY q.question_id, a.option_key";
-//
-//            Map<Integer, QuizResponse> quizResponseMap = new LinkedHashMap<>();
-//            try(PreparedStatement ps = conn.prepareStatement(sql))
-//
-//            {
-//
-//
-//             for(int i = 0; i < params.size(); i++)
-//             {
-//                 ps.setObject(i+1, params.get(i), Types.INTEGER);
-//             }
-//
-//
-//
-//                try( ResultSet rs = ps.executeQuery()){
-//
-//
-//                while (rs.next()) {
-//                    int questionId = rs.getInt("question_id");
-//
-//                    quizResponseMap.putIfAbsent(questionId, new QuizResponse(
-//                            questionId,
-//                            rs.getString("category_name"),
-//                            rs.getString("type_name"),
-//                            rs.getString("creator_name"),
-//                            rs.getString("question_text"),
-//                            new ArrayList<>()
-//                    ));
-//
-//                    QuizResponse quizResponse = quizResponseMap.get(questionId);
-//                    quizResponse.answers().add(new AnswerResponse(
-//                            rs.getInt("question_id"),
-//                            rs.getString("option_key"),
-//                            rs.getString("answer_text"),
-//                            rs.getBoolean("is_correct")
-//                    ));
-//                }
-//
-//            }
-//
-//
-//
-//
-//            }
-//
-//              return new ArrayList<>(quizResponseMap.values());
-//
-//        }catch (SQLException e)
-//        {
-//            throw new QuizException("Database error : " + e.getMessage());
-//        }
-//    }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -313,7 +213,6 @@ public class QuizRepositoryImpl implements  QuizRepository{
                 JOIN answers a ON q.question_id = a.question_id
                 """);
 
-            // Build WHERE clause dynamically
             List<Integer> params = new ArrayList<>();
             List<String> conditions = new ArrayList<>();
 
@@ -335,7 +234,7 @@ public class QuizRepositoryImpl implements  QuizRepository{
             Map<Integer, QuizResponse> quizMap = new LinkedHashMap<>();
 
             try (PreparedStatement ps = conn.prepareStatement(sql.toString())) {
-                // Set parameters safely (handles null)
+
                 for (int i = 0; i < params.size(); i++) {
                     ps.setObject(i + 1, params.get(i), Types.INTEGER);
                 }
@@ -357,7 +256,7 @@ public class QuizRepositoryImpl implements  QuizRepository{
                         // Add answer to the corresponding question
                         QuizResponse quizResponse = quizMap.get(questionId);
                         quizResponse.answers().add(new AnswerResponse(
-                                rs.getInt("answer_id"),       // ✅ use answer_id
+                                rs.getInt("answer_id"),
                                 rs.getString("option_key"),
                                 rs.getString("answer_text"),
                                 rs.getBoolean("is_correct")
