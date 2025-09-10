@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
                 ps.setString(1,user.getUsername());
                 ps.setString(2,user.getEmail());
                 ps.setString(3,user.getPassword());
-                ps.setInt(4,user.getRoleId());
+                ps.setInt(4,3);
 
                 int rowAffected = ps.executeUpdate();
                 if(rowAffected == 0)

@@ -1,8 +1,6 @@
 package model.entity;
 
 import lombok.*;
-
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,10 +18,10 @@ public class User {
     private String updateAt;
 
     public User(Integer roleId, String username,String email, String password) {
-        this.roleId = roleId;
-        this.username = username;
-        this.email = email;
-        this.password = password;
+//        this.roleId = roleId;
+//        this.username = username;
+//        this.email = email;
+//        this.password = password;
 
     }
 

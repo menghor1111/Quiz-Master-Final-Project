@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="lombok">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/lombok.jar!/" />
-      <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/postgresql-42.7.7.jar!/" />
-      <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/text-table-formatter-1.1.2.jar!/" />
-      <root url="jar://$USER_HOME$/Downloads/jbcrypt-0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lombok.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../text-table-formatter-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../postgresql-42.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jbcrypt-0.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

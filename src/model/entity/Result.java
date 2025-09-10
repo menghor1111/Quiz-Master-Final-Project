@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @ToString
 public class Result {
 
-    private Integer resultId;
-    private Integer playerId;
+    private int resultId;
+    private int playerId;
     private Integer CategoryId;
     private Integer score;
     private Integer totalQuestions;
